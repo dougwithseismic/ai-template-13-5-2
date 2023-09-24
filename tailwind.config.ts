@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
@@ -22,6 +24,11 @@ module.exports = {
         span: 'calc(1rem * 1.618 / 2)', // 13.04px for highlights,
         code: '0.875rem', // 14px for code blocks
         quote: '1.25rem' // 20px for blockquotes
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        title: ['var(--font-title)', ...fontFamily.sans],
+        body: ['var(--font-body)', ...fontFamily.sans]
       },
       lineHeight: {
         h1: '24px', // ~ 68.38px

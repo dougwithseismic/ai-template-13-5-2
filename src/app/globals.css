@@ -51,7 +51,16 @@
 
 /* Body */
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-title;
 }
 
 /* Headings */
@@ -77,7 +86,6 @@ span {
   @apply text-span leading-span;
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
-
 }
 
 /* Blockquotes */
@@ -86,7 +94,6 @@ blockquote {
   border-color: var(--colors-accent-DEFAULT);
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
-
 }
 
 /* Code Blocks */
