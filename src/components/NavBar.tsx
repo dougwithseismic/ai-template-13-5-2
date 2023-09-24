@@ -1,13 +1,27 @@
 import { ModeToggle } from './ModeToggle'
+import { useLayoutDrawers } from './layouts/LayoutDrawersContext'
 import { Button } from './ui/button'
+import {
+  TbLayoutSidebarLeftCollapse,
+  TbLayoutSidebarRightCollapse
+} from 'react-icons/tb'
 
 const NavBar = () => {
+  const { leftPanelOpen, toggleLeftPanel } = useLayoutDrawers()
+
   return (
-    <div className="p-4 flex border-b border-b-secondary">
-      <div className="mr-4 hidden md:flex">
+    <div className="p-4 flex border-b border-b-secondary h-16">
+      <div className="mr-4 hidden md:flex items-center justify-center gap-4">
         <a className="mr-6 flex items-center space-x-2" href="/">
           <span className="hidden font-bold sm:inline-block">promptheus</span>
         </a>
+        <Button variant={'outline'} onClick={toggleLeftPanel}>
+          {leftPanelOpen ? (
+            <TbLayoutSidebarLeftCollapse />
+          ) : (
+            <TbLayoutSidebarRightCollapse />
+          )}
+        </Button>{' '}
         <nav className="flex items-center space-x-6 text-sm font-medium">
           <a
             className="transition-colors hover:text-foreground/80 text-foreground/60"
@@ -94,7 +108,11 @@ const NavBar = () => {
               <span className="sr-only">GitHub</span>
             </div>
           </a>
-          <a target="_blank" rel="noreferrer" href="https://twitter.com/shadcn">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://twitter.com/dougiesilkstone"
+          >
             <div className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 py-2 w-9 px-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +124,7 @@ const NavBar = () => {
               <span className="sr-only">Twitter</span>
             </div>
           </a>
-        <ModeToggle/>
-
+          <ModeToggle />
         </nav>
       </div>
     </div>

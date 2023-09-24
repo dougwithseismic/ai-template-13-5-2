@@ -38,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           'font-sans antialiased',
+          'h-screen',
           fontSans.variable,
           fontMono.variable,
           fontTitle.variable,
@@ -46,10 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <Toaster />
         <Providers attribute="class" defaultTheme="system" enableSystem>
-            <NavBar />
-          <ThreePanelContainer>
-            {children}
-          </ThreePanelContainer>
+          <ThreePanelContainer>{children}</ThreePanelContainer>
         </Providers>
       </body>
     </html>

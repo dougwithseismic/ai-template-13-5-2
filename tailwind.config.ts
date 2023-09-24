@@ -24,26 +24,18 @@ module.exports = {
         quote: '1.25rem' // 20px for blockquotes
       },
       lineHeight: {
-        h1: 'calc((1rem * 1.618 * 1.618 * 1.618) / 2 )', // ~ 68.38px
-        h2: 'calc((1rem * 1.618 * 1.618) * 1.618 / 2)', // ~ 42.11px
+        h1: '24px', // ~ 68.38px
+        h2: '24px', // ~ 42.11px
         h3: 'calc((1rem * 1.618) * 1.618/ 2)', // ~ 26px
         h4: 'calc((1rem * 1.618) / 2)', // ~ 16.08px
         h5: 'calc((1rem * 1.618) * 1.618)', // ~ 9.92px
         h6: 'calc((1rem * 1.618) * 1.618)', // ~ 6.13px
-        p: 'calc(1rem * 1.618)', // ~ 25.88px
+        p: '1rem', // ~ 25.88px
         span: 'calc((1rem * 1.618 / 2) * 1.618)', // ~ 21.07px for highlights
         code: 'calc(0.875rem * 1.618)', // 14px * golden ratio
         quote: 'calc(1.25rem * 1.618)' // 20px * golden ratio
       },
-      margin: {
-        'h1-top': 'calc(1rem * 1.618 * 1.618 * 1.618 * 1.618)', // matching h1 fontSize
-        'h2-top': 'calc(1rem * 1.618 * 1.618 * 1.618)',
-        'h3-top': 'calc(1rem * 1.618 * 1.618)',
-        'h4-top': 'calc(1rem * 1.618)',
-        'p-top': 'calc(1rem * 1.618)',
-        'code-top': 'calc(0.875rem * 1.618)',
-        'quote-top': 'calc(1.25rem * 1.618)'
-      },
+
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
