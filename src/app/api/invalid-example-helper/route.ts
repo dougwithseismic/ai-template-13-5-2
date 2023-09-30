@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 import { NextRequest } from 'next/server'
-import { initialPayloads } from '@/payloads'
+import { initialPayloads } from '@/examples'
 
 export const runtime = 'edge'
 

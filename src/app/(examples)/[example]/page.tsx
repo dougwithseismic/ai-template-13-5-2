@@ -3,7 +3,7 @@
 
 import { useRouter, useParams } from 'next/navigation'
 import GenericAnalyzer from '@/components/generic-analyzer'
-import { initialPayloads } from '@/payloads'
+import { initialPayloads } from '@/examples'
 import { useCompletion } from 'ai/react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -19,12 +19,13 @@ export default function ExamplePage() {
   }
 
   return (
+
     <GenericAnalyzer
       apiEndpoint={`/api/examples/${example}`}
       title={payload.title}
       description={payload.description}
       placeholder={payload.placeholder}
-    />
+      />
   )
 }
 

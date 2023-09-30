@@ -60,7 +60,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-title;
+  @apply font-title;
 }
 
 /* Headings */
@@ -77,8 +77,8 @@ h4 {
 
 /* Paragraph */
 p {
-  @apply text-p leading-p;
-  margin-top: 1.6rem;
+  @apply text-p;
+  line-height: 190%;
 }
 
 /* Inline Text - Highlights and Specials */

@@ -39,16 +39,25 @@
     "lucide-react": "^0.279.0",
     "next": "13.5.2",
     "next-themes": "^0.2.1",
+    "novel": "^0.1.21",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-day-picker": "^8.8.2",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
+    "react-markdown": "^9.0.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-syntax-highlighter-virtualized-renderer": "^1.1.0",
+    "remark-gfm": "^4.0.0",
+    "syntax-highlighter": "^0.0.3",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2",
     "use-debounce": "^9.0.4"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.7"
   }
 }
