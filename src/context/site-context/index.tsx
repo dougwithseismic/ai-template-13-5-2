@@ -1,21 +1,35 @@
-import React, {
-  createContext,
-  useReducer,
-  useMemo,
-  ReactNode,
-  useContext
-} from 'react'
-import { siteReducer } from './siteReducer'
-import { Actions } from './siteActions'
-import { State, defaultState } from './siteActions'
+import React, { ReactNode, createContext, useContext, useReducer } from 'react'
+import { siteReducer } from './site-reducer'
+import { useActions } from './use-actions'
 
-export type SiteDispatch = React.Dispatch<Actions>
-export type SiteContextType = [State, SiteDispatch]
+/**
+ * @typedef State
+ *
+ * Defines the shape of the state object.
+ *
+ * @property {string | null} currentTopic - The current topic in focus.
+ * @property {ReturnType<typeof useTextToSpeech>} textToSpeech - The return value of the useTextToSpeech hook.
+ * @property {Object} chat - The chat object.
+ * @property {string | null} chat.id - The ID of the chat.
+ * @property {Chat[]} chat.history - The history of the chat.
+ * @property {boolean} darkMode - Whether dark mode is enabled.
+ */
+export type State = {
+  name: string
+  darkMode: boolean
+}
 
-const initialState: SiteContextType = [defaultState, () => {}]
+export const defaultState: State = {
+  name: 'default',
+  darkMode: true
+}
 
-export const SiteContext = createContext<SiteContextType>(initialState)
+// Create the context
+export const SiteContext = createContext<
+  [State, ReturnType<typeof useActions>]
+>([defaultState, {} as any])
 
+// Create the provider
 type SiteContextProviderProps = {
   children: ReactNode
 }
@@ -24,15 +38,28 @@ export const SiteContextProvider: React.FC<SiteContextProviderProps> = ({
   children
 }) => {
   const [state, dispatch] = useReducer(siteReducer, defaultState)
+  const actions = useActions(dispatch)
+
+  //   const supabase = supabaseClientAuth()
+  //   const { listeners } = useSupabaseListeners(supabase, dispatch) //  gets / listens for assets etc.
 
   return (
-    <SiteContext.Provider value={[state, dispatch]}>
+    <SiteContext.Provider value={[{ ...state }, actions]}>
       {children}
     </SiteContext.Provider>
   )
 }
+export type UseSite = [State, ReturnType<typeof useActions>]
 
-export const useSite = (): SiteContextType => {
+/**
+ * useSite custom hook.
+ *
+ * This hook is used to access the SiteContext.
+ *
+ * @returns {UseSite} - The state and actions.
+ * @throws Will throw an error if used outside of SiteContextProvider.
+ */
+export const useSite = (): UseSite => {
   const context = useContext(SiteContext)
   if (!context) {
     throw new Error('useSite must be used within a SiteContextProvider')

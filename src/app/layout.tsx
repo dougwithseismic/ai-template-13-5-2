@@ -38,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           'font-sans antialiased',
+          'overflow-hidden',
           'h-screen',
           fontSans.variable,
           fontMono.variable,

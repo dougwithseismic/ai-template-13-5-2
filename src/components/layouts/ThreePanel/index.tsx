@@ -43,48 +43,44 @@ const ThreePanelContainer: React.FC<ThreePanelProps> = ({ children }) => {
   return (
     <>
       <div className="flex flex-col w-full h-full">
-        <NavBar />
-        <div className="flex h-full">
+        <div className="z-50">
+          <NavBar />
+        </div>
+        <div className="flex z-40 h-full">
           <div
             className={cn(
-              'relative bg-card-secondary transition-all duration-300 ease-in-out border-r border-transparent',
-              leftPanelOpen ? 'w-64 border-secondary' : 'w-0'
+              'bg-card-secondary absolute top-16 bottom-0 transition-all duration-500 ease-in-out w-72 bg-secondary/30',
+              leftPanelOpen ? '-left-96 border-secondary' : 'left-0'
             )}
           >
             <div
               className={cn(
-                'left-panel--content flex flex-col justify-between p-4 transition-all ease-in-out',
-                leftPanelOpen ? 'opacity-100' : 'opacity-0'
+                'left-panel--content flex flex-col h-full justify-between p-4 transition-all ease-in-out',
+                leftPanelOpen ? 'opacit' : 'opaci'
               )}
             >
               <PanelContent title="Chat History" />
             </div>
           </div>
-          <div className="z-10 w-16 h-16 m-4">
-            <Button variant={'outline'} onClick={toggleLeftPanel}>
-              {leftPanelOpen ? (
-                <TbLayoutSidebarLeftCollapse />
-              ) : (
-                <TbLayoutSidebarRightCollapse />
+
+          <div className="flex-1 h-full">{children}</div>
+
+          <div className="flex z-40">
+            <div
+              className={cn(
+                'bg-card-secondary absolute top-16 bottom-0 transition-all duration-500 ease-in-out border-r border-muted w-64 bg-secondary/50',
+                leftPanelOpen ? '-right-96 border-secondary' : 'right-0'
               )}
-            </Button>
+            >
+              <div
+                className={cn(
+                  'left-panel--content flex flex-col h-full justify-between p-4 transition-all ease-in-out',
+                  leftPanelOpen ? 'opacit' : 'opaci'
+                )}
+              ><h4>Right Panel</h4>
+              </div>
+            </div>
           </div>
-          <div className="flex-1">{children}</div>
-          <div className="z-10 w-16 m-4 h-16 flex justify-end">
-            <Button variant={'outline'} onClick={toggleRightPanel}>
-              {rightPanelOpen ? (
-                <TbLayoutSidebarRightCollapse />
-              ) : (
-                <TbLayoutSidebarLeftCollapse />
-              )}
-            </Button>
-          </div>
-          <div
-            className={cn(
-              'relative bg-secondary transition-all duration-300 ease-in-out',
-              rightPanelOpen ? 'w-48' : 'w-0'
-            )}
-          />
         </div>
       </div>
     </>

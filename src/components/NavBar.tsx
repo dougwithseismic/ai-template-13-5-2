@@ -10,7 +10,7 @@ const NavBar = () => {
   const { leftPanelOpen, toggleLeftPanel } = useLayoutDrawers()
 
   return (
-    <div className="p-4 flex border-b border-b-secondary h-16">
+    <div className="p-4 flex border-b border-b-secondary h-16 z-50 bg-primary-background">
       <div className="mr-4 hidden md:flex items-center justify-center gap-4">
         <a className="mr-6 flex items-center space-x-2" href="/">
           <span className="hidden font-bold sm:inline-block">promptheus</span>
